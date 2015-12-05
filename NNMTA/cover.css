@@ -59,7 +59,14 @@ body {
   padding: 30px;
 }
 
+/* navbar header */
+.masthead{
+  z-index: 99;
+}
 
+.mastfoot{
+  z-index:0;
+}
 /*
  * Header
  */
@@ -130,8 +137,7 @@ body {
 
 /*
 -----------------------------------
-    Code snippet by @maridlcrmn
-    Credits images: www.unsplash.com
+EVENTS
 -----------------------------------
 */
 
@@ -154,13 +160,13 @@ body {
       height: 480px;
     }
 #thumbnail-preview-indicators .slides .slide-1 {
-  background-image: url(https://s3.amazonaws.com/ooomf-com-files/wdXqHcTwSTmLuKOGz92L_Landscape.jpg); 
+  background-image: url(https://i.ytimg.com/vi/Vlztayrh6L4/maxresdefault.jpg); 
 }
 #thumbnail-preview-indicators .slides .slide-2 {
-  background-image: url(https://c1.staticflickr.com/9/8259/8611916071_070ba7c76a_b.jpg);
+  background-image: url("christmas1.jpg");
 }
 #thumbnail-preview-indicators .slides .slide-3 {
-  background-image: url(https://s3.amazonaws.com/ooomf-com-files/mtNrf7oxS4uSxTzMBWfQ_DSC_0043.jpg);
+  background-image: url(https://i.ytimg.com/vi/mMmimilRyYo/maxresdefault.jpg);
 }
 #thumbnail-preview-indicators .carousel-inner .item .carousel-caption {
   top: 20%;
@@ -209,6 +215,72 @@ body {
 /*
  * Affix and center
  */
+
+/* Customize container */
+/*
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+*/
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  background-color:transparent;
+}
+
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+.jumbotron .bg{
+  position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("generic.jpg") center center;
+    background-size: 1200px 700px;
+    background-position: center;
+    opacity: .7;
+    width: 100%;
+    height: 100%;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+}
+
+.marketing p + h4 {
+  margin-top: 28px;
+}
+.marketing .bg{
+  position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("black.png") center center;
+    opacity: .3;
+    width: 100%;
+    height: 100%;
+}
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
