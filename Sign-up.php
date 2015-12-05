@@ -82,27 +82,90 @@
                       </li>
                       <li><a>Contact</a></li>
                     </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                      <div class="form-group">
-                          <input type="text" class="form-control" name="username" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                          <input type="text" class="form-control" name="password" placeholder="Password">
-                      </div>
-                      <button type="submit" class="btn btn-default">Login</button>
-                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="Login.php">Login</a></li>
+                      <li class="active"><a href="Sign-up">Sign-up</a></li>
+                    </ul>
                   </div><!--/.nav-collapse -->
                 </div>
               </nav>
             </div>
           </div>
 
-           <div class="inner cover">
-            <h1 class="cover-heading">Northern Nevada Music Teachers Assoc.</h1>
-            <p class="lead">Providing performance and educational opportunites for teachers and students in northern Nevada.</p>
-            <p class="lead">
-              <a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
+          <div class="inner cover">
+            <h1 class="cover-heading">Create an Account</h1>
+            <form class="form" method="post">
+              <div class="form-group col-xs-6">
+                <input type="text" class="form-control" name="firstname" id="exampleInputEmail1" placeholder="First Name">
+              </div>
+              <div class="form-group col-xs-6">
+                <input type="text" class="form-control" name="lastname" id="exampleInputEmail1" placeholder="Last Name">
+              </div>
+              <div class="form-group col-xs-12">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group col-xs-12">
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group col-xs-12">
+                <input type="password" class="form-control" name="password_confirm" id="exampleInputPassword2" placeholder="Confirm Password">
+              </div>
+              <div class="form-group col-xs-12">
+                <select class="form-control" name="account_type" id="sel1">
+                  <option>Account Type:</option>
+                  <option>Teacher</option>
+                  <option>Student</option>
+                </select>
+              </div>
+
+              <button type="submit" name="submit" class="btn btn-default">Submit</button>
+
+                <!-- PHP code to store login information into database. -->
+                <?php
+                    require('NNMTA/Database/config.php');
+                    session_start();
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        // obtain information from the user
+                        $firstName = mysqli_real_escape_string($db, $_POST['firstname']);
+                        $lastName = mysqli_real_escape_string($db, $_POST['lastname']);
+                        $email = mysqli_real_escape_string($db, $_POST['email']);
+                        $password = mysqli_real_escape_string($db, $_POST['password']);
+                        $passwordConfirm = mysqli_real_escape_string($db, $_POST['password_confirm']);
+                        $accountType = '';
+                        if (isset($_POST['submit'])) {
+                            $accountType = $_POST['account_type'];
+                            echo "Selected account type: " . $accountType;
+                        }
+                        else {
+                            echo "no account selected";
+                        }
+
+
+                        // check to see if passwords match
+                        if ($password != $passwordConfirm) {
+                            // passwords do not match
+                            echo 'DID NOT ENTER THE SAME PASSWORD!';
+                            die();
+                        }
+
+                        // generate sql query
+                        $query = "INSERT INTO users (firstName, lastName, email, password, accountType)
+                            VALUES ('$firstName', '$lastName', '$email', '$password', '$accountType')";
+
+                        // attempt to add to database
+                        if (mysqli_query($db, $query) === TRUE) {
+                            echo 'Successfully added a new user to the database!';
+                        }
+                        else {
+                            echo mysqli_error($db);
+                        }
+
+                        // close database
+                        closeDatabase($db);
+                    }
+                ?>
+                <!-- End of PHP code  to store login information into database -->
+            </form>
           </div>
 
           <div class="mastfoot">

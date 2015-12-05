@@ -82,43 +82,65 @@
                       </li>
                       <li><a>Contact</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="Login.html">Login</a></li>
-                      <li class="active"><a href="Sign-up">Sign-up</a></li>
-                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                      <div class="form-group">
+                          <input type="text" class="form-control" name="username" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" name="password" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-default">Login</button>
+                    </form>
+
+                      <!-- PHP code to login into a database
+                      <?php
+                      include('NNMTA/Database/config.php');
+                      session_start();
+                      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                          // username and password are acquired from the html form
+                          $username = mysqli_real_escape_string($db, $_POST['username']);
+                          $password = mysqli_real_escape_string($db, $_POST['password']);
+
+                          // query the database
+                          $colToSearchFor = 'userID';
+                          $sql = "SELECT '$colToSearchFor' FROM DB_DATABASE WHERE userName = '$username' and password = '$password'";
+                          // attempt to query from database
+                          if (mysqli_query($db, $query) === TRUE) {
+                              echo 'Successfully added a new user to the database!';
+                          }
+                          else {
+                              echo mysqli_error($db);
+                          }
+                          $result = mysqli_query($db, $sql);
+                          $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                          $active = $row['active'];
+
+                          // there should only be one user in the database with the credentials entered
+                          $count = mysqli_num_rows($result);
+                          if ($count == 1) {
+                              session_register($username); // deprecated?
+                              $_SESSION['login_user'] = $username;
+                              header("location: ../Login_successful.html");
+                          }
+                          else {
+                              $error = "Your username or password was invalid.";
+                          }
+                      }
+                      ?>
+                      -->
+
                   </div><!--/.nav-collapse -->
                 </div>
               </nav>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Create an Account</h1>
-            <form class="form">
-              <div class="form-group col-xs-6">
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name">
-              </div>
-              <div class="form-group col-xs-6">
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
-              </div>
-              <div class="form-group col-xs-12">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group col-xs-12">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-               <div class="form-group col-xs-12">
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
-              </div>
-              <div class="form-group col-xs-12">
-                <select class="form-control" id="sel1">
-                  <option>Account Type:</option>
-                  <option>Teacher</option>
-                  <option>Student</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+           <div class="inner cover">
+            <h1 class="cover-heading">Northern Nevada Music Teachers Assoc.</h1>
+            <p class="lead">Providing performance and educational opportunites for teachers and students in northern Nevada.</p>
+            <p class="lead">
+              <a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Learn more</a>
+            </p>
           </div>
 
           <div class="mastfoot">
