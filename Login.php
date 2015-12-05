@@ -82,9 +82,9 @@
                       </li>
                       <li><a>Contact</a></li>
                     </ul>
-                    <form class="navbar-form navbar-right" role="search">
+                    <form class="navbar-form navbar-right" method="post" role="search">
                       <div class="form-group">
-                          <input type="text" class="form-control" name="username" placeholder="Email">
+                          <input type="text" class="foram-control" name="username" placeholder="Email">
                       </div>
                       <div class="form-group">
                           <input type="text" class="form-control" name="password" placeholder="Password">
@@ -92,42 +92,48 @@
                       <button type="submit" class="btn btn-default">Login</button>
                     </form>
 
-                      <!-- PHP code to login into a database
+                      <!-- PHP code to login to database -->
                       <?php
-                      include('NNMTA/Database/config.php');
-                      session_start();
-                      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                          // username and password are acquired from the html form
-                          $username = mysqli_real_escape_string($db, $_POST['username']);
-                          $password = mysqli_real_escape_string($db, $_POST['password']);
+                          require('NNMTA/Database/config.php');
+                          session_start();
 
-                          // query the database
-                          $colToSearchFor = 'userID';
-                          $sql = "SELECT '$colToSearchFor' FROM DB_DATABASE WHERE userName = '$username' and password = '$password'";
-                          // attempt to query from database
-                          if (mysqli_query($db, $query) === TRUE) {
-                              echo 'Successfully added a new user to the database!';
-                          }
-                          else {
-                              echo mysqli_error($db);
-                          }
-                          $result = mysqli_query($db, $sql);
-                          $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                          $active = $row['active'];
+                            echo 'TRYING TO LOGIN TO ARIA';
 
-                          // there should only be one user in the database with the credentials entered
-                          $count = mysqli_num_rows($result);
-                          if ($count == 1) {
-                              session_register($username); // deprecated?
-                              $_SESSION['login_user'] = $username;
-                              header("location: ../Login_successful.html");
+                          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                              // username and password are acquired from the html form
+                              $user_email = mysqli_real_escape_string($db, $_POST['username']);
+                              $password = mysqli_real_escape_string($db, $_POST['password']);
+
+                              echo 'Username: ' . $user_email;
+                              echo 'Password: ' . $password;
+
+                              // query the database
+                              $colToSearchFor = 'userID';
+                              $query = "SELECT $colToSearchFor FROM users WHERE email = '$user_email' and password = '$password';";
+                              //$query = "select * from users;";
+
+                              echo 'Generated SQL query: ' . $query;
+
+                              // attempt to query from database
+                              $result = mysqli_query($db, $query);
+                              $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                              $active = $row['active'];
+
+                              // there should only be one user in the database with the credentials entered
+                              $count = mysqli_num_rows($result);
+                              if ($count == 1) {
+                                  echo "SUCCESSFULLY FOUND USER FROM DATABASE";
+                                  //session_register($username); // deprecated?
+                                  //$_SESSION['login_user'] = $username;
+                                  //header("location: ../Login_successful.html");
+                              }
+                              else {
+                                  echo "DID NOT FIND USER FROM DATABASE";
+                                  $error = "Your username or password was invalid.";
+                              }
                           }
-                          else {
-                              $error = "Your username or password was invalid.";
-                          }
-                      }
                       ?>
-                      -->
+                      <!-- End of PHP code to login to database -->
 
                   </div><!--/.nav-collapse -->
                 </div>
