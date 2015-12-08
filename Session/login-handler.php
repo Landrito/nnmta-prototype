@@ -17,6 +17,14 @@ class LoginSessionHandler {
             = array('email' => $email, 'password_hash' => $password_hash);
   }
 
+    function IsLoggedIn() {
+        return isset($_SESSION['login']);
+    }
+
+    function GetLoginInfo() {
+        return $_SESSION['login'];
+    }
+
     function Logout() {
         session_destroy();  // Destroy all values associated with the session.
         session_regenerate_id(true); // Regenerate session id for security and remove prior from the server.
