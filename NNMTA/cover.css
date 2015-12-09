@@ -34,6 +34,7 @@ body {
 body {
   color: #fff;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -147,7 +148,10 @@ EVENTS
 }
 #thumbnail-preview-indicators .slides .slide-1, 
 #thumbnail-preview-indicators .slides .slide-2,
-#thumbnail-preview-indicators .slides .slide-3 {
+#thumbnail-preview-indicators .slides .slide-3, 
+#thumbnail-preview-indicators .slides .slide-t1, 
+#thumbnail-preview-indicators .slides .slide-t2, 
+#thumbnail-preview-indicators .slides .slide-t3{
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -156,17 +160,40 @@ EVENTS
     #thumbnail-preview-indicators .slides,
     #thumbnail-preview-indicators .slides .slide-1, 
     #thumbnail-preview-indicators .slides .slide-2,
-    #thumbnail-preview-indicators .slides .slide-3 {
+    #thumbnail-preview-indicators .slides .slide-3, 
+    #thumbnail-preview-indicators .slides .slide-t1, 
+    #thumbnail-preview-indicators .slides .slide-t2, 
+    #thumbnail-preview-indicators .slides .slide-t3 {
       height: 480px;
     }
+
+/*events*/
 #thumbnail-preview-indicators .slides .slide-1 {
   background-image: url(https://i.ytimg.com/vi/Vlztayrh6L4/maxresdefault.jpg); 
+  opacity:.85;
 }
 #thumbnail-preview-indicators .slides .slide-2 {
   background-image: url("christmas1.jpg");
+  opacity:.85;
 }
 #thumbnail-preview-indicators .slides .slide-3 {
   background-image: url(https://i.ytimg.com/vi/mMmimilRyYo/maxresdefault.jpg);
+  opacity:.85;
+}
+
+/*teacher*/
+#thumbnail-preview-indicators .slides .slide-t1 {
+  background-image: url("piano3.jpg"); 
+  opacity:.7;
+}
+#thumbnail-preview-indicators .slides .slide-t2 {
+  background-image: url("piano2.jpg");
+  opacity:.7;
+}
+#thumbnail-preview-indicators .slides .slide-t3 {
+  background-image: url("concert1.jpg");
+  left:0;
+  opacity:.7;
 }
 #thumbnail-preview-indicators .carousel-inner .item .carousel-caption {
   top: 20%;
@@ -228,13 +255,14 @@ EVENTS
 }
 */
 
-/* Main marketing message and sign up button */
+/* Jumbotron */
 .jumbotron {
   text-align: center;
   position: relative;
   z-index: 1;
   opacity: 1;
   background-color:transparent;
+  max-width:100%;
 }
 
 .jumbotron .btn {
@@ -255,9 +283,10 @@ EVENTS
     opacity: .7;
     width: 100%;
     height: 100%;
+    max-width:100%;
 }
 
-/* Supporting marketing content */
+/* Supporting content */
 .marketing {
   margin: 40px 0;
   padding: 10px;
@@ -277,11 +306,67 @@ EVENTS
     left: 0;
     right: 0;
     background: url("black.png") center center;
-    opacity: .3;
+    opacity: .8;
     width: 100%;
     height: 100%;
 }
+/* MARKETING CONTENT
+-------------------------------------------------- */
 
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.teacher .featurette{
+  margin-left: 250px;
+}
+
+.teacher .featurette h4{
+  text-align: justify;
+}
+
+.teacher .featurette h2, h1{
+  text-align: center;
+  margin-left: 0px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin-left: 250px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-left: 250px;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #000000;
+}
+.footer p {
+  padding:10px;
+}
 @media (min-width: 768px) {
   /* Pull out the header and footer */
   .masthead {
