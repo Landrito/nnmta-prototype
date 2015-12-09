@@ -42,7 +42,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <nav class="navbar navbar-default navbar-fixed-top">
+              <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                   <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -51,40 +51,35 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">NNMTA</a>
+                    <a class="navbar-brand" href="Home.html">NNMTA</a>
                   </div>
                   <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                       <li><a a href="Home.html">Home</a></li>
-                      <li><a>About</a></li>
-                      <li><a>Events</a></li>
+                      <li><a href = "Info.html">About</a></li>
+                      <li><a href="Events.html">Events</a></li>
                       <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Students<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a>Find a teacher</a></li>
-                          <li><a>State Conference</a></li>
+                          <li><a href="Find_teacher.html">Find a teacher</a></li>
                           <li><a>Join</a></li>
                         </ul>
                       </li>
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teachers<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a>Christmas Play-a-thon</a></li>
-                          <li><a>MTNA Competition</a></li>
-                        </ul>
-                      </li>
+                      
+                      <li><a href="Teachers.html">Teachers</a></li>
                       <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a>Bylwas</a></li>
+                          <li><a>Bylaws</a></li>
                           <li><a>Constitution</a></li>
                         </ul>
                       </li>
-                      <li><a>Contact</a></li>
+                      <li><a href="Calendar.html">Calendar</a></li>
+                      <li><a href="Contact.html">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="Login.php">Login</a></li>
-                      <li class="active"><a href="Sign-up">Sign-up</a></li>
+                      <li class="active"><a href="Sign-up.php">Sign-up</a></li>
                     </ul>
                   </div><!--/.nav-collapse -->
                 </div>
