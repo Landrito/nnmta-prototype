@@ -84,55 +84,16 @@
                     </ul>
                     <form class="navbar-form navbar-right" method="post" role="search">
                       <div class="form-group">
-                          <input type="text" class="foram-control" name="username" placeholder="Email">
+                          <input type="text" class="form-control" name="username" placeholder="Email">
                       </div>
                       <div class="form-group">
-                          <input type="text" class="form-control" name="password" placeholder="Password">
+                          <input type="password" class="form-control" name="password" placeholder="Password">
                       </div>
                       <button type="submit" class="btn btn-default">Login</button>
                     </form>
 
                       <!-- PHP code to login to database -->
-                      <?php
-                          require('NNMTA/Database/config.php');
-                          session_start();
 
-                            echo 'TRYING TO LOGIN TO ARIA';
-
-                          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                              // username and password are acquired from the html form
-                              $user_email = mysqli_real_escape_string($db, $_POST['username']);
-                              $password = mysqli_real_escape_string($db, $_POST['password']);
-
-                              echo 'Username: ' . $user_email;
-                              echo 'Password: ' . $password;
-
-                              // query the database
-                              $colToSearchFor = 'userID';
-                              $query = "SELECT $colToSearchFor FROM users WHERE email = '$user_email' and password = '$password';";
-                              //$query = "select * from users;";
-
-                              echo 'Generated SQL query: ' . $query;
-
-                              // attempt to query from database
-                              $result = mysqli_query($db, $query);
-                              $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                              $active = $row['active'];
-
-                              // there should only be one user in the database with the credentials entered
-                              $count = mysqli_num_rows($result);
-                              if ($count == 1) {
-                                  echo "SUCCESSFULLY FOUND USER FROM DATABASE";
-                                  //session_register($username); // deprecated?
-                                  //$_SESSION['login_user'] = $username;
-                                  //header("location: ../Login_successful.html");
-                              }
-                              else {
-                                  echo "DID NOT FIND USER FROM DATABASE";
-                                  $error = "Your username or password was invalid.";
-                              }
-                          }
-                      ?>
                       <!-- End of PHP code to login to database -->
 
                   </div><!--/.nav-collapse -->
@@ -142,7 +103,15 @@
           </div>
 
            <div class="inner cover">
-            <h1 class="cover-heading">Northern Nevada Music Teachers Assoc.</h1>
+            <h1 class="cover-heading">
+                Northern Nevada Music Teachers Assoc.
+                <?php
+                require('Session/login-session-handler.php');
+                if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                    $login_handler = new LoginSessionHandler();
+                }
+                ?>
+            </h1>
             <p class="lead">Providing performance and educational opportunites for teachers and students in northern Nevada.</p>
             <p class="lead">
               <a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Learn more</a>

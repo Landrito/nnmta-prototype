@@ -7,10 +7,7 @@
  */
 
 session_start();
-include 'login-handler.php';
+include 'login-session-handler.php';
 
 $login_handler = new LoginSessionHandler();
 $login_handler->Logout();
-
-?>
-
