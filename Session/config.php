@@ -1,12 +1,3 @@
-/*
-File: config.php
-Created by: Wesley Kepke
-Purpose: This file contains information about the MySQL database that users
-will utilize to login.
-
-This is not a WordPress plugin.
-*/
-
 <?php
 class Config {
     public function __construct() {
@@ -26,17 +17,15 @@ class Config {
 
         $this->database_link = $db;
 
-        // check if unable to connect to database
-        echo '<script> alert("here") </script>';
 
-        if (! $db) {
-            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-            echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-            //die('Could not connect: ' . mysqli_error($db));
-        }
-        else {
-            echo 'successfully connected to database';
-        }
+//        if (! $db) {
+//            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+//            echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+//            //die('Could not connect: ' . mysqli_error($db));
+//        }
+//        else {
+//            echo 'successfully connected to database';
+//        }
 
     }
 

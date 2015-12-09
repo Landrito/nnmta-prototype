@@ -42,7 +42,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <nav class="navbar navbar-default navbar-fixed-top">
+              <nav class="navbar navbar-default-inverse navbar-fixed-top">
                 <div class="container">
                   <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -82,15 +82,37 @@
                       </li>
                       <li><a>Contact</a></li>
                     </ul>
-                    <form class="navbar-form navbar-right" method="post" role="search">
-                      <div class="form-group">
-                          <input type="text" class="form-control" name="username" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                          <input type="password" class="form-control" name="password" placeholder="Password">
-                      </div>
-                      <button type="submit" class="btn btn-default">Login</button>
-                    </form>
+                      <?php
+                      require 'Session/login-session-handler.php';
+                      $login_handler = new LoginSessionHandler();
+                      if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                          if ($login_handler->Login($_POST['email'], $_POST['password'])) {
+                              echo "<script> alert('Email ".$login_handler->GetLoginInfo()['email']." has logged in.') </script>";
+                          } else {
+                              echo "<script> alert('Unsuccessfully logged in.') </script>";
+                          }
+                      }
+
+
+                      if($login_handler->IsLoggedIn()) {
+                          echo '<a href="Session/logout.php">Logout</a>';
+                      } else {
+                          echo '<form class="navbar-form navbar-right" method="post" role="search">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                  <input type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                  <button type="submit" class="btn btn-default">Login</button>
+                                </form>';
+                      }
+
+
+
+                      ?>
+
+
 
                       <!-- PHP code to login to database -->
 
@@ -105,12 +127,7 @@
            <div class="inner cover">
             <h1 class="cover-heading">
                 Northern Nevada Music Teachers Assoc.
-                <?php
-                require('Session/login-session-handler.php');
-                if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                    $login_handler = new LoginSessionHandler();
-                }
-                ?>
+
             </h1>
             <p class="lead">Providing performance and educational opportunites for teachers and students in northern Nevada.</p>
             <p class="lead">

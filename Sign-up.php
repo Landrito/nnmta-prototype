@@ -122,8 +122,10 @@
 
                 <!-- PHP code to store login information into database. -->
                 <?php
-                    require('NNMTA/Database/config.php');
+                    require('Session/config.php');
                     session_start();
+                    $config = new Config();
+                    $db = $config->GetDatabaseLink();
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // obtain information from the user
                         $firstName = mysqli_real_escape_string($db, $_POST['firstname']);

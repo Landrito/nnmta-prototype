@@ -1,18 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ernestlandrito
- * Date: 12/7/15
- * Time: 10:14 PM
- */
-
-/**
- * Class LoginHandler
- * This login handler will store login information in a session.
- * When logout is called, the session is destroyed and the session id is regenerated.
- */
-
-require("../NNMTA/Database/config.php");
+require "config.php";
 
 class LoginSessionHandler {
     public function __construct() {
@@ -56,6 +43,7 @@ class LoginSessionHandler {
         session_destroy();  // Destroy all values associated with the session.
         session_regenerate_id(true); // Regenerate session id for security and remove prior from the server.
     }
+
 
     private $config;
 }
