@@ -71,13 +71,6 @@
                       </li>
                       
                       <li><a href="Teachers.html">Teachers</a></li>
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a>Bylaws</a></li>
-                          <li><a>Constitution</a></li>
-                        </ul>
-                      </li>
                       <li><a href="Calendar.html">Calendar</a></li>
                       <li><a href="Contact.html">Contact</a></li>
                     </ul>
