@@ -42,7 +42,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <nav class="navbar navbar-default navbar-fixed-top">
+              <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                   <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -58,10 +58,10 @@
                       <li><a a href="Home.html">Home</a></li>
                       <li><a>About</a></li>
                       <li><a>Events</a></li>
-                      <li class="dropdown">
+                      <li class="dropdown" class="active">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Students<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="Find_teacher.html">Find a teacher</a></li>
+                          <li class="active"><a href="Find_teacher.html">Find a teacher</a></li>
                           <li><a>Join</a></li>
                         </ul>
                       </li>
@@ -70,7 +70,7 @@
                       <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a>Bylwas</a></li>
+                          <li><a>Bylaws</a></li>
                           <li><a>Constitution</a></li>
                         </ul>
                       </li>
@@ -87,55 +87,52 @@
           </div>
 
            <div class="inner cover">
-            <h1 class="cover-heading">Register for the Christmas Play-a-thon</h1>
+            <h1 class="cover-heading">Find a teacher</h1>
             <form class="form">
-              <h3 class="cover-heading">Registration information</h1>
+              <h3 class="cover-heading">Teacher information</h3>
 
               <div class="form-group col-xs-12">
-               <input type="datetime" class="form-control" id="time" placeholder="Desired performance time.">
-             </div>
-
-              <div class="form-group col-xs-6">
-                <select class="form-control" id="sel1">
-                  <option>Music Level:</option>
-                  <option>Level 1</option>
-                  <option>Level 2</option>
-                  <option>Level 3</option>
-                  <option>Level 4</option>
-                </select>
+               <input type="text" class="form-control" id="first-name" placeholder="First Name">
               </div>
-
-              <div class="form-group col-xs-6">
-               <input type="text" class="form-control" id="name" placeholder="Song Title">
-              </div>
-
-              <h3 class="cover-heading">Payment Information</h1>
 
               <div class="form-group col-xs-12">
-               <input type="text" class="form-control" id="name" placeholder="Cardholder's Name">
-             </div>
+               <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+              </div>
 
-             <div class="form-group col-xs-12">
-               <input type="text" class="form-control" id="name" placeholder="Card Number">
-             </div>
-
-             <div class="form-group col-xs-4">
+              <div class="form-group col-xs-12">
                 <select class="form-control" id="sel1">
-                  <option>Month</option>
+                  <option>City:</option>
+                  <option>Carson City</option>
+                  <option>Elko</option>
+                  <option>Fernley</option>
+                  <option>Gardnerville</option>
+                  <option>Incline Village</option>
+                  <option>Reno</option>
+                  <option>Sparks</option>
                 </select>
               </div>
 
-               <div class="form-group col-xs-4">
-                <select class="form-control" id="sel1">
-                  <option>Year</option>
-                </select>
+              <div class="form-group col-xs-12">
+                <h3>Type:</h3>
+                <div class="checkbox-inline">
+                  <label><input type="checkbox" value="">Guitar</label>
+                </div>
+                <div class="checkbox-inline">
+                  <label><input type="checkbox" value="">Piano</label>
+                </div>
+                <div class="checkbox-inline">
+                  <label><input type="checkbox" value="">Theory</label>
+                </div>
+                <div class="checkbox-inline">
+                  <label><input type="checkbox" value="">Vocal</label>
+                </div>
+
+                </div>
               </div>
 
-              <div class="form-group col-xs-4">
-               <input type="text" class="form-control" id="name" placeholder="Security Code">
-              </div>
 
-            <button type="submit" class="btn btn-default">Submit</button>
+
+            <button type="submit" class="btn btn-info">Submit &raquo;</button>
               <br><br><br><br><br><br><br><br>
             </form>
           </div>
