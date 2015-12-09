@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)http://getbootstrap.com/examples/cover/ -->
+<!-- NNMTA LOGIN PAGE -->
+<!-- Date Modified: 12/8 -->
+<!-- Authors: Iinuma, Kepke, Landrito, Lee -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +45,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
+              <!-- Top Navigation Bar -->
               <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                   <div class="navbar-header">
@@ -77,9 +81,12 @@
                       <li><a href="Calendar.html">Calendar</a></li>
                       <li><a href="Contact.html">Contact</a></li>
                     </ul>
+                    <!-- Login PHP -->
                       <?php
                       require 'Session/login-session-handler.php';
                       $login_handler = new LoginSessionHandler();
+
+                      // If submitting
                       if ($_SERVER['REQUEST_METHOD'] == "POST") {
                           if ($login_handler->Login($_POST['email'], $_POST['password'])) {
                               echo "<script> alert('Email ".$login_handler->GetLoginInfo()['email']." has logged in.') </script>";
@@ -88,7 +95,7 @@
                           }
                       }
 
-
+                      // Check if logged in
                       if($login_handler->IsLoggedIn()) {
                           echo '<a href="Session/logout.php">Logout</a>';
                       } else {
@@ -119,17 +126,19 @@
             </div>
           </div>
 
+          <!-- Info -->
            <div class="inner cover">
             <h1 class="cover-heading">
-                Northern Nevada Music Teachers Assoc.
+                Northern Nevada Music Teachers Association
 
             </h1>
             <p class="lead">Providing performance and educational opportunites for teachers and students in Northern Nevada.</p>
             <p class="lead">
-              <a href="Info.html" class="btn btn-lg btn-default">Learn more</a>
+              <a href="Info.html" class="btn btn-lg btn-info">Learn more</a>
             </p>
           </div>
 
+          <!-- Footer -->
           <div class="mastfoot">
             <div class="inner">
               <p>ARIA built by Kyle, Renee, Ernest, and Wes.</p>
