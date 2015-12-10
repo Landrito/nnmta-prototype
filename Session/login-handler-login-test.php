@@ -10,5 +10,5 @@ session_start();
 include 'login-session-handler.php';
 
 $login_handler = new LoginSessionHandler();
-$login_handler->Login('ernest@unr.edu', 'password hash');
+$login_handler->Login('ernest.landrito@me.com', 'test');
 

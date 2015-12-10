@@ -76,6 +76,7 @@
                     </ul>
                     <!-- Login PHP -->
                       <?php
+                      session_start();
                       require 'Session/login-session-handler.php';
                       $login_handler = new LoginSessionHandler();
 
@@ -87,30 +88,30 @@
                               echo "<script> alert('Unsuccessfully logged in.') </script>";
                           }
                       }
-
                       // Check if logged in
                       if($login_handler->IsLoggedIn()) {
-                          echo '<a href="Session/logout.php">Logout</a>';
+                          $login_visability = "hidden";
+                          $username_visablilty = "";
                       } else {
-                          echo '<form class="navbar-form navbar-right" method="post" role="search">
-                                <div class="form-group">
-                                  <input type="text" class="form-control" name="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                  <input type="password" class="form-control" name="password" placeholder="Password">
-                                </div>
-                                  <button type="submit" class="btn btn-default">Login</button>
-                                </form>';
+                          $login_visability = "";
+                          $username_visablilty = "hidden";
+
                       }
-
-
-
                       ?>
+                      <ul <?php echo $username_visablilty; ?> class="nav navbar-nav navbar-right">
 
+                          <li><a href="Session/logout.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $_SESSION['login']['email']; ?> </a> </li>
+                      </ul>
 
-
-                      <!-- PHP code to login to database -->
-
+                      <form <?php echo $login_visability; ?> class="navbar-form navbar-right" method="post" role="search">
+                          <div class="form-group">
+                              <input type="text" class="form-control" name="email" placeholder="Email">
+                          </div>
+                          <div class="form-group">
+                              <input type="password" class="form-control" name="password" placeholder="Password">
+                          </div>
+                          <button type="submit" class="btn btn-default">Login</button>
+                      </form>
                       <!-- End of PHP code to login to database -->
 
                   </div><!--/.nav-collapse -->

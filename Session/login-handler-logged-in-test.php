@@ -13,5 +13,5 @@ $login_handler = new LoginSessionHandler();
 
 echo $login_handler->IsLoggedIn()
     ? $login_handler->GetLoginInfo()['email']." is logged in with a password hash of "
-      .$login_handler->GetLoginInfo()['password_hash']
+      .$login_handler->GetLoginInfo()['password']
     : "Not logged in.";
