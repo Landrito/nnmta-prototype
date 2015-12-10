@@ -82,13 +82,16 @@
 
                       // If submitting
                       if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                          // Login using the login information
                           if ($login_handler->Login($_POST['email'], $_POST['password'])) {
+                              // Alert if success.
                               echo "<script> alert('Email ".$login_handler->GetLoginInfo()['email']." has logged in.') </script>";
                           } else {
+                              // Alert if unsusccessful.
                               echo "<script> alert('Unsuccessfully logged in.') </script>";
                           }
                       }
-                      // Check if logged in
+                      // Check if logged in and set visability.
                       if($login_handler->IsLoggedIn()) {
                           $login_visability = "hidden";
                           $username_visablilty = "";
@@ -98,6 +101,7 @@
 
                       }
                       ?>
+
                       <ul <?php echo $username_visablilty; ?> class="nav navbar-nav navbar-right">
 
                           <li><a href="Session/logout.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $_SESSION['login']['email']; ?> </a> </li>

@@ -119,12 +119,15 @@
 
                 <!-- PHP code to store login information into database. -->
                 <?php
+                    // Create a database link.
                     require('Session/config.php');
                     session_start();
                     $config = new Config();
                     $db = $config->GetDatabaseLink();
+
+                    // Check for a post from the registration form
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        // obtain information from the user
+                        // Obtain information from the user
                         $firstName = mysqli_real_escape_string($db, $_POST['firstname']);
                         $lastName = mysqli_real_escape_string($db, $_POST['lastname']);
                         $email = mysqli_real_escape_string($db, $_POST['email']);
@@ -138,7 +141,6 @@
                         else {
                             echo "no account selected";
                         }
-
 
                         // check to see if passwords match
                         if ($password != $passwordConfirm) {

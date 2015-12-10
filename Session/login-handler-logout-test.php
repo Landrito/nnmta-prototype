@@ -9,5 +9,6 @@
 session_start();
 include 'login-session-handler.php';
 
+// Make an handler and logout.
 $login_handler = new LoginSessionHandler();
 $login_handler->Logout();
